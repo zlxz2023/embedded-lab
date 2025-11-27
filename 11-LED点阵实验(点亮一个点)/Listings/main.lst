@@ -1,0 +1,69 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              09/22/2024 20:32:06 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: E:\Keil\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.ls
+                    -t) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <intrins.h>
+   3          #define uint unsigned int
+   4          #define uchar unsigned char
+   5          
+   6          sbit SER = P3^4;
+   7          sbit SCLK = P3^5; // 上升沿触发，将寄存器中的值送到端口
+   8          sbit SRCLK = P3^6; // 上升沿触发，将数据送到寄存器
+   9          uchar sdat = 0x01;
+  10                              
+  11          void delay_10us(uint z){
+  12   1          while(z--);
+  13   1      }
+  14          
+  15          void delay_ms(uint ms){
+  16   1          uint i, j;
+  17   1          for(i = ms;i > 0;i--){
+  18   2              for(j = 110;j > 0;j--);
+  19   2          }
+  20   1      }
+  21          
+  22          void hc595_data(uchar dat){
+  23   1          uint i = 0;
+  24   1          for(i = 0;i < 8;i++){
+  25   2              SER = dat >> 7;
+  26   2              dat <<= 1;
+  27   2              SRCLK = 0;
+  28   2              delay_10us(1);
+  29   2              SRCLK = 1;
+  30   2              delay_10us(1);
+  31   2          }
+  32   1          SCLK = 0;
+  33   1          delay_10us(1);
+  34   1          SCLK = 1;
+  35   1      }
+  36          
+  37          void main(){
+  38   1          P0 = 0x7f;
+  39   1          while(1){
+  40   2              hc595_data(0x00); // 消隐
+  41   2              hc595_data(0x80);
+  42   2          }
+  43   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    109    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+C51 COMPILER V9.60.7.0   MAIN                                                              09/22/2024 20:32:06 PAGE 2   
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
