@@ -1,0 +1,57 @@
+.container{
+    margin-top: 200rpx;
+}
+.one{
+    display: flex;
+    justify-content: space-between;
+    padding: 10rpx;
+}
+.place{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.place image{
+    width: 40rpx;
+    height: 40rpx;
+}
+/* two */
+.two{
+    margin-top: 100rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10rpx;
+}
+.two image{
+    width: 320rpx;
+    height: 320rpx;
+}
+.p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* three */
+.three{
+    margin-top: 50rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10rpx;
+}
+.t{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 20rpx;
+}
+.tt{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
