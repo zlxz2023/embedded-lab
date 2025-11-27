@@ -1,0 +1,1 @@
+test02_input_capture\startup_stm32g431xx.o: startup_stm32g431xx.s
