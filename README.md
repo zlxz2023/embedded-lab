@@ -9,3 +9,6 @@
 
 # PZ-ISP.exe
 该文件是普中为自己开发板做的烧录软件
+
+# MQTT配置
+<img width="1266" height="929" alt="image" src="https://github.com/user-attachments/assets/f084c1aa-17bf-4cf5-afe1-e7aa0d68a49b" />
